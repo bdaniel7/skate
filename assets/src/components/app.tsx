@@ -12,6 +12,7 @@ import SearchPage from "./searchPage"
 import SettingsPage from "./settingsPage"
 import ShuttleMapPage from "./shuttleMapPage"
 import TabBar from "./tabBar"
+import VehicleIconGallery from "./vehicleIconGallery"
 
 const AppRoutes = () => {
   useAppcues()
@@ -26,6 +27,7 @@ const AppRoutes = () => {
       </div>
       <div className="m-app__main">
         <TabBar pickerContainerIsVisible={pickerContainerIsVisible} />
+        <VehicleIconGallery />
         <BrowserRoute exact={true} path="/" component={LadderPage} />
         <BrowserRoute
           exact={true}
