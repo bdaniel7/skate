@@ -44,6 +44,10 @@ defmodule Realtime.Vehicles do
         now
       ) do
     ghosts = Ghost.ghosts(active_and_incoming_blocks_by_date, ungrouped_vehicles, now)
+    ghosts
+    |> Enum.map(& &1.route_id)
+    |> Enum.uniq
+    |> IO.inspect(label: :ghost_routes)
     vehicles_and_ghosts = ghosts ++ ungrouped_vehicles
 
     incoming_from_another_route =

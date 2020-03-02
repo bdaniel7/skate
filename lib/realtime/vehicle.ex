@@ -163,6 +163,9 @@ defmodule Realtime.Vehicle do
 
     data_discrepancies = VehiclePosition.data_discrepancies(vehicle_position)
     is_off_course = off_course?(data_discrepancies)
+    if BlockWaiver.block_waivers_for_block(block) != [] do
+      IO.inspect({route_id, run_id, VehiclePosition.id(vehicle_position)}, label: :has_block_waiver)
+    end
 
     %__MODULE__{
       id: VehiclePosition.id(vehicle_position),
